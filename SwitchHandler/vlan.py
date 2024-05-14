@@ -108,7 +108,7 @@ class Vlan:
         :rtype: str
         """
         return self._status
-    
+
     @status.setter
     def status(self, value):
         """
@@ -128,7 +128,7 @@ class Vlan:
         :rtype: list[str]
         """
         return self._interfaces
-    
+
     @interfaces.setter
     def interfaces(self, value):
         """
@@ -138,3 +138,9 @@ class Vlan:
         :raises WriteInterfacesError: If an attempt is made to modify the interfaces.
         """
         raise WriteInterfacesError("Interfaces cannot be modified.")
+
+    def __str__(self) -> str:
+        return f"VLAN {self.vlan_id} - {self.name}"
+
+    def __repr__(self) -> str:
+        return f"Vlan(vlan_id={self.vlan_id}, name={self.name}, status={self.status}, interfaces={self.interfaces})"
