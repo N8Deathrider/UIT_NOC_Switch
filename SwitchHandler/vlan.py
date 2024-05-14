@@ -66,3 +66,4 @@ class Vlan:
         self._connection.send_config_set(commands)
         self._connection.save_config()
         self._name = name
+        log.info(f"VLAN {self.vlan_id} name set to {name}")
