@@ -55,6 +55,16 @@ class Vlan:
         :rtype: int
         """
         return self._vlan_id
+    
+    @vlan_id.setter
+    def vlan_id(self, value):
+        """
+        This method raises a WriteVlanIDError to indicate that the VLAN ID cannot be modified.
+
+        :param value: The value of the VLAN ID.
+        :raises WriteVlanIDError: If an attempt is made to modify the VLAN ID.
+        """
+        raise WriteVlanIDError("VLAN ID cannot be modified.")
 
     @property
     def name(self) -> str:
