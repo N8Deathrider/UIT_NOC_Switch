@@ -28,11 +28,42 @@ log: logging.Logger = logging.getLogger("rich")
 
 @dataclass
 class Vlan:
-    _connection: BaseConnection
-    vlan_id: str|int
-    _name: str
-    status: str
-    interfaces: list[str]
+    def __init__(self, connection: BaseConnection, vlan_id: int, name: str, status: str, interfaces: list[str]):
+        self.connection = connection
+        self._vlan_id = vlan_id
+        self._name = name
+        self._status = status
+        self._interfaces = interfaces
+
+    @property
+    def vlan_id(self) -> int:
+        """
+        Get the VLAN ID.
+
+        :return: The VLAN ID.
+        :rtype: int
+        """
+        return self._vlan_id
+    
+    @property
+    def status(self) -> str:
+        """
+        Get the status of the VLAN.
+
+        :return: The status of the VLAN.
+        :rtype: str
+        """
+        return self._status
+    
+    @property
+    def interfaces(self) -> list[str]:
+        """
+        Get the interfaces assigned to the VLAN.
+
+        :return: The interfaces assigned to the VLAN.
+        :rtype: list[str]
+        """
+        return self._interfaces
 
     @property
     def name(self) -> str:
