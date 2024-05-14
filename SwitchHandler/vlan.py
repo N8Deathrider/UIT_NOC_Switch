@@ -128,3 +128,13 @@ class Vlan:
         :rtype: list[str]
         """
         return self._interfaces
+    
+    @interfaces.setter
+    def interfaces(self, value):
+        """
+        This method raises a WriteInterfacesError to indicate that the interfaces cannot be modified.
+
+        :param value: The value of the interfaces.
+        :raises WriteInterfacesError: If an attempt is made to modify the interfaces.
+        """
+        raise WriteInterfacesError("Interfaces cannot be modified.")
