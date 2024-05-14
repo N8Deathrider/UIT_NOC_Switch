@@ -6,8 +6,6 @@
 
 # Standard libraries
 import logging
-from sys import exit
-from dataclasses import dataclass
 
 # Third-party libraries
 from rich.logging import RichHandler
