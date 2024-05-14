@@ -40,7 +40,7 @@ class WriteInterfacesError(Exception):
 
 class Vlan:
     def __init__(self, connection: BaseConnection, vlan_id: int, name: str, status: str, interfaces: list[str]):
-        self.connection = connection
+        self._connection = connection
         self._vlan_id = vlan_id
         self._name = name
         self._status = status
