@@ -145,3 +145,17 @@ class Vlan:
 
     def __repr__(self) -> str:
         return f"Vlan(vlan_id={self.vlan_id}, name={self.name}, status={self.status}, interfaces={self.interfaces})"
+
+    def get_config(self) -> str:
+        """
+        Retrieves the running configuration of a specific VLAN.
+
+        :return: The running configuration of the VLAN.
+        :rtype: str
+        """
+        prompt = self._connection.find_prompt()
+        output = prompt
+        output += self._connection.find_prompt()
+        output += self._connection.send_command(f"show running-config vlan {self.vlan_id}", strip_command=False)
+        output += f"\n{prompt}"
+        return output
