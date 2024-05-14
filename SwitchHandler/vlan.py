@@ -80,6 +80,7 @@ class Vlan:
     def name(self, name: str):
         """
         Set the name of the VLAN.
+        This method sends the necessary commands to the switch to set the name of the VLAN.
 
         :param name: The name of the VLAN.
         :type name: str
