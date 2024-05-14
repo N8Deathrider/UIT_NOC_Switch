@@ -26,7 +26,18 @@ logging.basicConfig(
 log: logging.Logger = logging.getLogger("rich")
 
 
-@dataclass
+class WriteStatusError(Exception):
+    pass
+
+
+class WriteVlanIDError(Exception):
+    pass
+
+
+class WriteInterfacesError(Exception):
+    pass
+
+
 class Vlan:
     def __init__(self, connection: BaseConnection, vlan_id: int, name: str, status: str, interfaces: list[str]):
         self.connection = connection
