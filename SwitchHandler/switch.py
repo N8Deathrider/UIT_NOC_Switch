@@ -68,7 +68,7 @@ class Switch:
     def _get_facts(self) -> None:
         show_version = self._connection.send_command("show version", use_textfsm=True)
         vlans = self._connection.send_command("show vlan", use_textfsm=True)
-        self.vlans = {vlan["vlan_id"]: Vlan(_connection=self._connection, **vlan) for vlan in vlans}
+        self.vlans = {vlan["vlan_id"]: Vlan(connection=self._connection, **vlan) for vlan in vlans}
 
         self.uptime = show_version[0]["uptime"]
         self.hostname = show_version[0]["hostname"]
