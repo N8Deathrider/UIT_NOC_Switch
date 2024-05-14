@@ -108,6 +108,16 @@ class Vlan:
         :rtype: str
         """
         return self._status
+    
+    @status.setter
+    def status(self, value):
+        """
+        This method raises a WriteStatusError to indicate that the status cannot be modified.
+
+        :param value: The value of the status.
+        :raises WriteStatusError: If an attempt is made to modify the status.
+        """
+        raise WriteStatusError("Status cannot be modified.")
 
     @property
     def interfaces(self) -> list[str]:
